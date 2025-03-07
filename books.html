@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكتب</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/library-7976837.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .book-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.24);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .book-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .book-card a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .book-card a:hover {
+            background: #0056b3;
+        }
+
+        /* زر الرجوع للموقع */
+        .back-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #436769a6;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #65b300;
+        }
+
+        /* تنسيق البحث الجديد */
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-direction: row-reverse;
+        }
+
+        .search-box input {
+            width: 40%;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 2px solid #f4b400;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .search-box button {
+            background: #f4b400;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #ffcc00;
+        }
+    </style>
+</head>
+<script>
+    function searchBooks() {
+        let input = document.getElementById("searchBar").value.toLowerCase();
+        let books = document.getElementsByClassName("book-card");
+
+        for (let i = 0; i < books.length; i++) {
+            let title = books[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+            if (title.includes(input)) {
+                books[i].style.display = "block"; // يعرض الكتاب المطابق
+            } else {
+                books[i].style.display = "none"; // يخفي الكتب غير المطابقة
+            }
+        }
+    }
+</script>
+<body>
+    <h2>📚 قائمة الكتب</h2>
+
+    <!-- البحث تحت العنوان مباشرة -->
+    <div class="search-box">
+        <input type="text" id="searchBar" placeholder="🔍 ابحث عن كتاب..." onkeyup="searchBooks()">
+        <button onclick="searchBooks()">بحث</button>
+    </div>
+
+    <div class="book-container">
+        <div class="book-card">
+            <img src="images/image-removeb44g-preview.png" alt="كتاب الدحيح">
+            <h3>الدحيح - ما وراء الكواليس</h3>
+            <a href="https://up.4read.net/4read/pdf/الدحيح%20-%20ما%20وراء%20الكواليس.pdf">📖 قراءة</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/11345-removebg-preview.png" alt="كتاب 2">
+            <h3>رياض الصالحين</h3>
+            <a href="https://up.4read.net/zahef/books/1655653796.pdf">📖 قراءة</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/images-removebg-preview.png" alt="كتاب 3">
+            <h3>فقه السنه </h3>
+            <a href="#">📖 قراءة</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book4.jpg" alt="العادات الذرية">
+            <h3>العادات الذرية</h3>
+            <a href="#">📖 قراءة</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book5.jpg" alt="الأب الغني والأب الفقير">
+            <h3>الأب الغني والأب الفقير</h3>
+            <a href="#">📖 قراءة</a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book6.jpg" alt="فن اللامبالاة">
+            <h3>فن اللامبالاة</h3>
+            <a href="#">📖 قراءة</a>
+        </div>
+    </div>
+
+    <!-- زر الرجوع للموقع -->
+    <a href="index.html" class="back-btn">🏠 الرجوع للموقع</a>
+</body>
+</html>
